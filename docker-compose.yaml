@@ -1,0 +1,46 @@
+version: "3.7"
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: .docker/Dockerfile
+        container_name: laravel-app
+        restart: unless-stopped
+        depends_on: 
+            - mysql
+        volumes:
+            - ./:/var/www
+        networks:
+            - app-network
+    mysql:
+        image: mysql:5.7
+        container_name: mysql-app
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: laravel
+            MYSQL_ROOT_PASSWORD: laravel
+        command:
+            'mysqld --innodb-flush-method=fsync --explicit_defaults_for_timestamp'
+        ports:
+            - "53306:3306"
+        volumes:
+            - .docker/database:/var/lib/mysql
+        networks:
+            - app-network
+    nginx:
+        image: nginx:alpine
+        container_name: nginx-app
+        restart: unless-stopped
+        ports:
+            - "82:80"
+        volumes:
+            - ./:/var/www
+            - .docker/nginx:/etc/nginx/conf.d/
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        name: app-network-back
+        driver: bridge
