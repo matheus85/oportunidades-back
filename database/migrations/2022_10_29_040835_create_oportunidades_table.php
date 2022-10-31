@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->text('descricao');
+            $table->unsignedBigInteger('status_id')->default(1);
             $table->timestamps();
+
+            $table->foreign('status_id')->references('id')->on('status');
         });
     }
 

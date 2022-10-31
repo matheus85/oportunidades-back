@@ -5,7 +5,7 @@ services:
         build:
             context: .
             dockerfile: .docker/Dockerfile
-        container_name: laravel-app
+        container_name: laravel-app-back
         restart: unless-stopped
         depends_on: 
             - mysql
@@ -30,7 +30,7 @@ services:
             - app-network
     nginx:
         image: nginx:alpine
-        container_name: nginx-app
+        container_name: nginx-app-back
         restart: unless-stopped
         ports:
             - "82:80"

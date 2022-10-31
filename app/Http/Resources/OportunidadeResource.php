@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AuthResource extends JsonResource
+class OportunidadeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,13 +15,11 @@ class AuthResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'access_token' => $this->createToken('Personal Access Token')->accessToken,
-            'user'         => [
-                'id'     => $this->id,
-                'name'   => $this->name,
-                'email'  => $this->email,
-                'perfil' => $this->perfil,
-            ]
+            'id'        => $this->id,
+            'nome'      => $this->nome,
+            'status_id' => $this->status_id,
+            'descricao' => $this->descricao,
+            'clientes'  => $this->clientes()->allRelatedIds()->toArray(),
         ];
     }
 }

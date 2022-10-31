@@ -5,11 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Perfil extends Model
+class OportunidadeCliente extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
 
-    protected $table = 'perfis';
+    protected $fillable = [
+        'user_id',
+        'oportunidade_id',
+    ];
+
+    protected $table = 'oportunidade_clientes';
 }

@@ -12,7 +12,23 @@ class Oportunidade extends Model
     protected $fillable = [
         'nome',
         'descricao',
+        'status_id'
     ];
 
     protected $table = 'oportunidades';
+
+    public function clientes()
+    {
+        return $this->belongsToMany(
+            'App\Models\Oportunidade',
+            'oportunidade_clientes',
+            'user_id',
+            'oportunidade_id'
+        );
+    }
+
+    public function status()
+    {
+        return $this->hasOne('App\Models\Status', 'id', 'status_id');
+    }
 }

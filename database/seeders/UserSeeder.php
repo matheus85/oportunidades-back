@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name'              => 'Cliente Um',
+            'name'              => 'Bruce Dickinson',
             'email'             => 'cliente1@teste.com',
             'perfil_id'         => 1,
             'password'          => Hash::make('123456'),
@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'name'              => 'Cliente Dois',
+            'name'              => 'Steve Harris',
             'email'             => 'cliente2@teste.com',
             'perfil_id'         => 1,
             'password'          => Hash::make('123456'),
@@ -33,7 +33,39 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'name'              => 'Vendedor Um',
+            'name'              => 'Adrian Smith',
+            'email'             => 'cliente3@teste.com',
+            'perfil_id'         => 1,
+            'password'          => Hash::make('123456'),
+            'email_verified_at' => Carbon::now()
+        ]);
+
+        User::create([
+            'name'              => 'Dave Murray',
+            'email'             => 'cliente4@teste.com',
+            'perfil_id'         => 1,
+            'password'          => Hash::make('123456'),
+            'email_verified_at' => Carbon::now()
+        ]);
+
+        User::create([
+            'name'              => 'Janick Gers',
+            'email'             => 'cliente5@teste.com',
+            'perfil_id'         => 1,
+            'password'          => Hash::make('123456'),
+            'email_verified_at' => Carbon::now()
+        ]);
+
+        User::create([
+            'name'              => 'Nicko McBrain',
+            'email'             => 'cliente6@teste.com',
+            'perfil_id'         => 1,
+            'password'          => Hash::make('123456'),
+            'email_verified_at' => Carbon::now()
+        ]);
+
+        User::create([
+            'name'              => 'João da Silva',
             'email'             => 'vendedor1@teste.com',
             'perfil_id'         => 2,
             'password'          => Hash::make('123456'),
@@ -41,7 +73,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'name'              => 'Vendedor Dois',
+            'name'              => 'Maria Joaquina',
             'email'             => 'vendedor2@teste.com',
             'perfil_id'         => 2,
             'password'          => Hash::make('123456'),

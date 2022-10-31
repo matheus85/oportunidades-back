@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('perfis', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+        Schema::create('oportunidade_clientes', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('oportunidade_id');
+            $table->primary(['user_id', 'oportunidade_id']);
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perfis');
+        Schema::dropIfExists('oportunidade_clientes');
     }
 };

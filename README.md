@@ -15,7 +15,7 @@
 
 2. Dentro da pasta criada para o projeto executar o docker-compose.
 ```bash
-- docker-compose up -d
+- docker-compose up -d --build
 ```
 
 3. Executar o migrate para gerar o banco de dados.
@@ -23,15 +23,12 @@
 - docker-compose exec app php artisan migrate --seed
 ```
 
-# Informações.
+# Endereço da API.
 ```
 - http://localhost:82
 ```
 
+# Documentação - Swagger.
 ```
-- Banco de dados - MySQL
-- Host: localhost
-- Port: 53306
-- User: root
-- Pass: laravel
+- http://localhost:82/api/documentation
 ```
