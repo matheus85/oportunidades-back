@@ -15,11 +15,13 @@ class OportunidadeResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'        => $this->id,
-            'nome'      => $this->nome,
-            'status_id' => $this->status_id,
-            'descricao' => $this->descricao,
-            'clientes'  => $this->clientes()->allRelatedIds()->toArray(),
+            'id'            => $this->id,
+            'nome'          => $this->nome,
+            'status_id'     => $this->status_id,
+            'descricao'     => $this->descricao,
+            'clientes'      => $this->clientes()->allRelatedIds()->toArray(),
+            'created_at'    => $this->created_at,
+            'nome_vendedor' => $this->vendedor->name,
         ];
     }
 }

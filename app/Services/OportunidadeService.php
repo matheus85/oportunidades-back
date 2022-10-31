@@ -20,6 +20,8 @@ class OportunidadeService implements OportunidadeServiceInterface
 
     public function save(array $input): Oportunidade
     {
+        $input['user_id'] = auth()->user()->id;
+
         return $this->oportunidadeRepository->save($input);
     }
 

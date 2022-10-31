@@ -18,9 +18,11 @@ return new class extends Migration
             $table->string('nome');
             $table->text('descricao');
             $table->unsignedBigInteger('status_id')->default(1);
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             $table->foreign('status_id')->references('id')->on('status');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

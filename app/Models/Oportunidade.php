@@ -12,7 +12,8 @@ class Oportunidade extends Model
     protected $fillable = [
         'nome',
         'descricao',
-        'status_id'
+        'status_id',
+        'user_id'
     ];
 
     protected $table = 'oportunidades';
@@ -30,5 +31,10 @@ class Oportunidade extends Model
     public function status()
     {
         return $this->hasOne('App\Models\Status', 'id', 'status_id');
+    }
+
+    public function vendedor()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
     }
 }

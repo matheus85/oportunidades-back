@@ -20,13 +20,13 @@ class OportunidadeRepository implements OportunidadeRepositoryInterface
 
     public function save(array $input): Oportunidade
     {
-        \Log::info($input);
         $oportunidade = $this->oportunidade->create($input);
-        \Log::info($oportunidade);
 
         if (!empty($input['clientes'])) {
             $oportunidade->clientes()->sync($input['clientes']);
         }
+
+        $oportunidade->refresh();
 
         return $oportunidade;
     }
